@@ -127,8 +127,9 @@ func AddUser(data map[string]interface{}) (id int, err error) {
 		Username: data["username"].(string),
 		Password: data["password"].(string),
 	}
+
 	var role []Role
-	db.Where("id in (?)", data["role_id"].(int)).Find(&role)
+	db.Where("id in (?)", []int{2, 3}).Find(&role)
 	if err := db.Create(&user).Association("Role").Append(role).Error; err != nil {
 		return 0, err
 	}

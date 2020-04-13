@@ -6,6 +6,7 @@ import (
 	"net/http"
 	"strings"
 	"suyuan/g"
+	"suyuan/routers/api"
 )
 
 func InitRouter() *gin.Engine {
@@ -45,8 +46,7 @@ func InitRouter() *gin.Engine {
 	//	apiV1.DELETE("/users/:id", api.DeleteUser)
 	//}
 
-
-
+	r.POST("/add_user", api.AddUsers)
 
 	return r
 }
